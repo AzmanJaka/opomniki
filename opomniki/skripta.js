@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
 		
 		
 
-    	document.getElementById("opomniki").innerHTML+= "<div class='opomnik'><div class='naziv_opomnika'>"+ime+"</div><div class='cas_opomnika'> Opomnik čez <span>"+cas+"</span> sekund.</div></div>"
+    	document.getElementById("opomniki").innerHTML+= "<div class='opomnik rob senca'><div class='naziv_opomnika'>"+ime+"</div><div class='cas_opomnika'> Opomnik čez <span>"+cas+"</span> sekund.</div></div>"
 		
 	}
 	document.querySelector("#dodajGumb").addEventListener('click', nastavi_vrednost);
@@ -35,8 +35,15 @@ window.addEventListener('load', function() {
 			var cas = parseInt(casovnik.innerHTML);
 	
 			//TODO: 
-			while (cas > 0){
-				cas = cas - 1;
+			if (cas > 0){
+				casovnik.innerHTML = cas-1;
+				
+			}
+			else{
+				var nazivOpomnika = opomnik.querySelector(".naziv_opomnika").innerHTML;
+				
+				document.querySelector("#opomniki").removeChild(opomnik);
+				window.alert("Opomnik je potekel!");
 			}
 			
 			
